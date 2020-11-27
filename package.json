@@ -1,0 +1,26 @@
+{
+  "name": "mitt-lag---backend",
+  "version": "1.0.0",
+  "description": "Examensarbete FED19G",
+  "main": "server.js",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.16"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FThelin/mitt-lag---backend.git"
+  },
+  "author": "Fredrik Thelin Simon Beijer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FThelin/mitt-lag---backend/issues"
+  },
+  "homepage": "https://github.com/FThelin/mitt-lag---backend#readme"
+}
