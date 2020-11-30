@@ -1,0 +1,14 @@
+GET http://localhost:5000/api/users
+
+###
+
+POST http://localhost:5000/api/users/register
+Content-Type: application/json
+
+{
+    "firstname": "Fredrik",
+    "lastname": "Thelin",
+    "email": "fredrikthelin82@gmail.com",
+    "password": "123456",
+    "role": "admin"
+}

@@ -1,11 +1,14 @@
 const express = require("express")
 const mongoose = require("mongoose")
+const api = require("./api");
 const port = process.env.PORT || 5000;
 
 require("dotenv").config();
 
-
 const app = express();
+app.use(express.json())
+
+app.use(api)
 
 //Start server
 app.listen(port, () =>
