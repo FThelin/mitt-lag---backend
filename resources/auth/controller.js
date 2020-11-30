@@ -18,5 +18,4 @@ exports.login = async (req, res) => {
 
     const token = jwt.sign(payload, process.env.JWT_SECRET)
     res.json({ token })
-
 }
