@@ -1,15 +1,16 @@
+const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const User = require('../user/model')
 
 exports.login = async (req, res) => {
-    const user = User.findOne({ email: req.body.email })
+    
+    const user = await User.findOne({ email: req.body.email })
 
     if (!user || !(await bcrypt.compare(req.body.password, user.password))) {
         return res.status(401).json("Wrong email or password");
     }    
-  
-    const payload = 
-    { 
+    
+    const payload = { 
         firstname: user.firstname,
         lastname: user.lastname,
         email: user.email,
@@ -17,5 +18,11 @@ exports.login = async (req, res) => {
     }
 
     const token = jwt.sign(payload, process.env.JWT_SECRET)
-    res.json({ token })
+
+    const options = {
+        expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRE * 1000),
+        httpOnly: true,
+    };
+
+    res.status(200).cookie("token", token, options).json(token);   
 }
