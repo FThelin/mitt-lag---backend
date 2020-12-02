@@ -24,8 +24,8 @@ const UserSchema = new mongoose.Schema(
             ],
           },
         team: {
-        type: mongoose.Schema.ObjectId,
-        ref: ModelName.Team,
+            type: mongoose.Schema.ObjectId,
+            ref: ModelName.Team,
         },
         role: {
             type: String,
