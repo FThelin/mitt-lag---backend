@@ -3,6 +3,7 @@ const mongoose = require("mongoose")
 const api = require("./api");
 const port = process.env.PORT || 5000;
 
+//Dotenv
 require("dotenv").config();
 
 const app = express();
