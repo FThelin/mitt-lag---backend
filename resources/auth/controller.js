@@ -2,6 +2,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const User = require("../user/model");
 
+//Login function
 exports.login = async (req, res) => {
   const user = await User.findOne({ email: req.body.email });
 
@@ -26,4 +27,16 @@ exports.login = async (req, res) => {
   };
 
   res.status(200).cookie("token", token, options).json(token);
+};
+
+//Logout function
+exports.logout = async (_, res) => {
+  res.cookie("token", "none", {
+    expires: new Date(Date.now() + 10 * 1000),
+    httpOnly: true,
+  });
+
+  res.status(200).json({
+    success: true
+  });
 };

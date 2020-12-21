@@ -6,6 +6,7 @@ const handler = express.Router()
 
 handler
   .post("/login", controller.login)
+  .post("/logout", controller.logout)
 
 router.use("/auth", handler)
 
