@@ -1,0 +1,9 @@
+POST http://localhost:5000/api/teams
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYzRjMGYwMGEyYmFmMmZkOGY2YzI4YyIsImZpcnN0bmFtZSI6IkZyZWRyaWsiLCJsYXN0bmFtZSI6IlRoZWxpbiIsImVtYWlsIjoiZnJlZHJpa3RoZWxpbjgyQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYwODYzMDg2N30.lLbUEmJK67nvKPzYTk3f3bWrotfpoPWNqGBuDsO6F6s
+
+{
+    "name": "HSG",
+    "city": "Göteborg",
+    "sport": "Innebandy"
+}
