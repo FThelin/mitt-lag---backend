@@ -23,7 +23,7 @@ const UserSchema = new mongoose.Schema({
     ],
   },
   team: {
-    type: mongoose.Schema.ObjectId,
+    type: [mongoose.Schema.ObjectId],
     ref: ModelName.Team,
     default: [],
   },
