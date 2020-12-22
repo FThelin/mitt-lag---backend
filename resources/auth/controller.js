@@ -11,6 +11,7 @@ exports.login = async (req, res) => {
   }
 
   const payload = {
+    id: user._id,
     firstname: user.firstname,
     lastname: user.lastname,
     email: user.email,
@@ -37,6 +38,6 @@ exports.logout = async (_, res) => {
   });
 
   res.status(200).json({
-    success: true
+    success: true,
   });
 };
