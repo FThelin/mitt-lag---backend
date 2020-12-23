@@ -29,6 +29,10 @@ const TeamSchema = new mongoose.Schema({
     ref: ModelName.User,
     default: [],
   },
+  active: {
+    type: Boolean,
+    default: true,
+  },
 });
 
 module.exports = mongoose.model(ModelName.Team, TeamSchema);
