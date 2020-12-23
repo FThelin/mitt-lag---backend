@@ -27,6 +27,10 @@ const UserSchema = new mongoose.Schema({
     ref: ModelName.Team,
     default: [],
   },
+  activeTeam: {
+    type: mongoose.Schema.ObjectId,
+    ref: ModelName.Team,
+  },
   role: {
     type: String,
   },
