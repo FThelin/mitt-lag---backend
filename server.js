@@ -1,5 +1,5 @@
-const express = require("express")
-const mongoose = require("mongoose")
+const express = require("express");
+const mongoose = require("mongoose");
 const api = require("./api");
 const port = process.env.PORT || 5000;
 
@@ -7,7 +7,7 @@ const port = process.env.PORT || 5000;
 require("dotenv").config();
 
 const app = express();
-app.use(express.json())
+app.use(express.json());
 
 //CORS handling
 app.use(function (req, res, next) {
@@ -17,12 +17,12 @@ app.use(function (req, res, next) {
     "Access-Control-Allow-Credentials": true,
     "Access-Control-Allow-Methods": "GET,POST,PUT,DELETE,OPTIONS",
     "Access-Control-Allow-Headers":
-    "Origin, X-Requested-With, Content-Type, Accept, Z-Key",
+      "Origin, X-Requested-With, Content-Type, Accept, Z-Key, Authorization",
   });
   next();
 });
 
-app.use(api)
+app.use(api);
 
 //Start server
 app.listen(port, () =>
