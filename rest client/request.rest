@@ -1,0 +1,10 @@
+POST http://localhost:5000/api/requests/5fe99e34b0cfbf1f88c19fc9
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZTM1YWRmY2NjZWFkMDAxNzVlYWE2ZiIsImZpcnN0bmFtZSI6IkZyZWRyaWsiLCJsYXN0bmFtZSI6IlRoZWxpbiIsImVtYWlsIjoiZkB0LnNlIiwidGVhbSI6WyI1ZmUzNWZjZjE3NzA1ZTAwMTcwMTQyNDYiXSwiaWF0IjoxNjA5MTQ1NzM5fQ.UD1L4G9Ad76zXs-E5nay1TIWDOPZGmSQmkK60y9c1Ww
+
+{
+    "player": "5fe99df7b0cfbf1f88c19fc8",
+    "message": "Hej, får jag gå med i ditt tuffa lag?"
+}
+
+###
