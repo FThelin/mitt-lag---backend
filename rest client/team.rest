@@ -3,7 +3,11 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZTk5ZGY3YjBjZmJmMWY4OGMxOWZjOCIsImZpcnN0bmFtZSI6ImhhdmUiLCJsYXN0bmFtZSI6InRlYW0iLCJlbWFpbCI6ImhhdmVAdGVhbS5zZSIsInRlYW0iOltdLCJpYXQiOjE2MDkxNDU4Nzh9.AH1_bNslI5NvD18tSAYIL_oQq24MktxEfLIv2OrULfE
 
 {
-    "name": "Testlag",
+    "name": "Hasses Sega Gubbar",
     "city": "Göteborg",
     "sport": "Innebandy"
 }
+
+###
+GET http://localhost:5000/api/teams/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZTk5ZGY3YjBjZmJmMWY4OGMxOWZjOCIsImZpcnN0bmFtZSI6ImhhdmUiLCJsYXN0bmFtZSI6InRlYW0iLCJlbWFpbCI6ImhhdmVAdGVhbS5zZSIsInRlYW0iOltdLCJpYXQiOjE2MDkxNDU4Nzh9.AH1_bNslI5NvD18tSAYIL_oQq24MktxEfLIv2OrULfE

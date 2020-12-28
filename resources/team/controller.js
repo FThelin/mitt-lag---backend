@@ -24,3 +24,17 @@ exports.createTeam = async (req, res) => {
 
   res.status(201).json(team);
 };
+
+exports.findTeam = async (req, res) => {
+  req.params.query = req.params.query.replace("&", " ");
+
+  const team = await Team.find({
+    name: { $regex: req.params.query, $options: "i" },
+  });
+
+  if (!team) {
+    return res.status(404).send("");
+  }
+
+  res.status(200).json(team);
+};
