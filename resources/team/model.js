@@ -29,6 +29,11 @@ const TeamSchema = new mongoose.Schema({
     ref: ModelName.User,
     default: [],
   },
+  requests: {
+    type: [mongoose.Schema.ObjectId],
+    ref: ModelName.Request,
+    default: [],
+  },
 });
 
 module.exports = mongoose.model(ModelName.Team, TeamSchema);

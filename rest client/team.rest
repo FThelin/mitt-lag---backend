@@ -1,9 +1,9 @@
 POST http://localhost:5000/api/teams
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZTM0ZjU0NGZkNGMzMGY1ODBkMmMzZiIsImZpcnN0bmFtZSI6ImEiLCJsYXN0bmFtZSI6ImEiLCJlbWFpbCI6ImFAYS5zZSIsInRlYW0iOltdLCJpYXQiOjE2MDg3MzI1MzN9.4xyR9kCknImEyVh6L6EVwKrrusmdJneFxZ_XGeh2-7I
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZTk5ZGY3YjBjZmJmMWY4OGMxOWZjOCIsImZpcnN0bmFtZSI6ImhhdmUiLCJsYXN0bmFtZSI6InRlYW0iLCJlbWFpbCI6ImhhdmVAdGVhbS5zZSIsInRlYW0iOltdLCJpYXQiOjE2MDkxNDU4Nzh9.AH1_bNslI5NvD18tSAYIL_oQq24MktxEfLIv2OrULfE
 
 {
-    "name": "HSG",
+    "name": "Testlag",
     "city": "Göteborg",
     "sport": "Innebandy"
 }
