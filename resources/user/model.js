@@ -22,11 +22,13 @@ const UserSchema = new mongoose.Schema({
       "Bad email",
     ],
   },
-  team: {
-    type: [mongoose.Schema.ObjectId],
-    ref: ModelName.Team,
-    default: [],
-  },
+  team: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: ModelName.Team,
+      default: [],
+    },
+  ],
   activeTeam: {
     type: mongoose.Schema.ObjectId,
     ref: ModelName.Team,

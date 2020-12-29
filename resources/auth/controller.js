@@ -1,10 +1,13 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const User = require("../user/model");
+const Modelnames = require("../../utils/modelNames");
 
 //Login function
 exports.login = async (req, res) => {
-  const user = await User.findOne({ email: req.body.email });
+  const user = await User.findOne({ email: req.body.email })
+    .populate(["team"])
+    .populate("activeTeam");
 
   if (!user || !(await bcrypt.compare(req.body.password, user.password))) {
     return res.status(401);
