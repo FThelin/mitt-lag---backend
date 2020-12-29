@@ -19,21 +19,27 @@ const TeamSchema = new mongoose.Schema({
     ref: ModelName.Game,
     default: [],
   },
-  players: {
-    type: [mongoose.Schema.ObjectId],
-    ref: ModelName.User,
-    default: [],
-  },
-  leaders: {
-    type: [mongoose.Schema.ObjectId],
-    ref: ModelName.User,
-    default: [],
-  },
-  requests: {
-    type: [mongoose.Schema.ObjectId],
-    ref: ModelName.Request,
-    default: [],
-  },
+  players: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: ModelName.User,
+      default: [],
+    },
+  ],
+  leaders: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: ModelName.User,
+      default: [],
+    },
+  ],
+  requests: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: ModelName.Request,
+      default: [],
+    },
+  ],
 });
 
 module.exports = mongoose.model(ModelName.Team, TeamSchema);
