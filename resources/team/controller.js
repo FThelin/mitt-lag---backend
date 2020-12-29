@@ -38,3 +38,51 @@ exports.findTeam = async (req, res) => {
 
   res.status(200).json(team);
 };
+
+exports.deletePlayerFromTeam = async (req, res) => {
+  const team = await Team.findById(req.body.teamId);
+
+  if (!team) {
+    return res.status(404).send("No team found");
+  }
+
+  const player = await team.players.find((p) => p == req.body.userId);
+
+  if (!player) {
+    return res.status(404).send("No player found");
+  }
+
+  const index = team.players.indexOf(player);
+  team.players.splice(index, 1);
+
+  await team.save();
+
+  res.status(200).json({
+    success: true,
+    data: team.players,
+  });
+};
+
+exports.deleteLeaderFromTeam = async (req, res) => {
+  const team = await Team.findById(req.body.teamId);
+
+  if (!team) {
+    return res.status(404).send("No team found");
+  }
+
+  const player = await team.leaders.find((p) => p == req.body.userId);
+
+  if (!player) {
+    return res.status(404).send("No player found");
+  }
+
+  const index = team.leaders.indexOf(player);
+  team.leaders.splice(index, 1);
+
+  await team.save();
+
+  res.status(200).json({
+    success: true,
+    data: team.players,
+  });
+};

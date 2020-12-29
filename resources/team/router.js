@@ -7,6 +7,8 @@ const handler = express.Router();
 
 handler.post("/", verifyToken, controller.createTeam);
 handler.get("/:query", verifyToken, controller.findTeam);
+handler.delete("/deletePlayer", verifyToken, controller.deletePlayerFromTeam);
+handler.delete("/deleteLeader", verifyToken, controller.deleteLeaderFromTeam);
 
 router.use("/teams", handler);
 
