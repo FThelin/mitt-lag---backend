@@ -39,6 +39,19 @@ exports.findTeam = async (req, res) => {
   res.status(200).json(team);
 };
 
+exports.getTeam = async (req, res) => {
+  const team = await await Team.findById(req.params.id)
+    .populate("players")
+    .populate("leaders")
+    .populate("requests");
+
+  if (!team) {
+    return res.status(404).send("");
+  }
+
+  res.status(200).json(team);
+};
+
 exports.deletePlayerFromTeam = async (req, res) => {
   const team = await Team.findById(req.body.teamId);
 
