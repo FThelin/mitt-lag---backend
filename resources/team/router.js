@@ -10,6 +10,7 @@ handler.get("/:query", verifyToken, controller.findTeam);
 handler.get("/findOne/:id", verifyToken, controller.getTeam);
 handler.delete("/deletePlayer", verifyToken, controller.deletePlayerFromTeam);
 handler.delete("/deleteLeader", verifyToken, controller.deleteLeaderFromTeam);
+handler.post("/acceptRequest", verifyToken, controller.acceptRequest);
 
 router.use("/teams", handler);
 

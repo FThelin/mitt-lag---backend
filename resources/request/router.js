@@ -5,7 +5,9 @@ const { verifyToken } = require("../../utils/verifyToken");
 const router = express.Router();
 const handler = express.Router();
 
-handler.post("/:teamId", verifyToken, controller.createRequest);
+handler
+  .post("/:teamId", verifyToken, controller.createRequest)
+  .delete("/deleteRequest", verifyToken, controller.deleteRequest);
 
 router.use("/requests", handler);
 

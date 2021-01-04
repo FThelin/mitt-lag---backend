@@ -99,3 +99,27 @@ exports.deleteLeaderFromTeam = async (req, res) => {
     data: team.players,
   });
 };
+
+exports.acceptRequest = async (req, res) => {
+  const team = await Team.findById(req.body.teamId);
+
+  if (!team) {
+    return res.status(400).send("Something went wrong");
+  }
+  const requestUser = await team.requests.find((p) => p == req.body.playerId);
+
+  if (!requestUser) {
+    return res.status(404).send("No player found");
+  }
+
+  const index = team.requests.indexOf(requestUser);
+  team.requests.splice(index, 1);
+
+  team.players = [...team.players, req.body.playerId];
+
+  team.save();
+
+  res.status(201).json({
+    success: true,
+  });
+};

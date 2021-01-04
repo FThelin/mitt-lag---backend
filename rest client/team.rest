@@ -14,8 +14,8 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZTk5ZGY3Y
 
 ###
 
-GET http://localhost:5000/api/teams/findOne/5feaf6705f8c970017f88a74
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZWFmZGUwYjVkYzg0MWMzNDYwMDdlMSIsImZpcnN0bmFtZSI6ImFkIiwibGFzdG5hbWUiOiJhZCIsImVtYWlsIjoiYWRAYS5zZSIsInRlYW0iOlsiNWZlYWZlNWE2ZTQzMzkzYmFjYmIxOWE1Il0sImFjdGl2ZVRlYW0iOiI1ZmVhZmU1YTZlNDMzOTNiYWNiYjE5YTUiLCJpYXQiOjE2MDk2ODcwNzJ9.wLcTBoxJk6Hh4s5trDEq5ZTubDB1qW-8l-DKR1NvTNM
+GET http://localhost:5000/api/teams/findOne/5ff2fc652f36f30017de7e23
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZjJlMzc0MDM5MWE2MDAxNzQ0YzQyMSIsImZpcnN0bmFtZSI6IkxlaWYiLCJsYXN0bmFtZSI6Ik9sc3NvbiIsImVtYWlsIjoibG9rZXRAYmluZ28uY29tIiwidGVhbSI6WyI1ZmYyZTQwNDAzOTFhNjAwMTc0NGM0MjIiLCI1ZmYyZTQyNTAzOTFhNjAwMTc0NGM0MjMiXSwiYWN0aXZlVGVhbSI6IjVmZjJlNDI1MDM5MWE2MDAxNzQ0YzQyMyIsImlhdCI6MTYwOTc2NTg3N30.E3USTZZmD00vujLQVP3n8L2zHBQlSOOsOV1lQu4fAgk
 
 ###
 
@@ -38,5 +38,17 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZWFmZGUwY
     "teamId": "5feaf6705f8c970017f88a74",
     "userId": "5feaf5d75f8c970017f88a72"
 }
+
+###
+
+POST http://localhost:5000/api/teams/acceptRequest
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZjJlZjVlMmYzNmYzMDAxN2RlN2UxZiIsImZpcnN0bmFtZSI6InRlc3QiLCJsYXN0bmFtZSI6InRlc3QiLCJlbWFpbCI6InRlc3RAY29tLmNvbSIsInRlYW0iOlsiNWZmMmU0MDQwMzkxYTYwMDE3NDRjNDIyIl0sImlhdCI6MTYwOTc3OTY5NH0.XK_kSM4pCKHt5tQ4DkePcj2W5xxGQR9e63J8xut5oX4
+
+{
+    "teamId": "5ff2e4250391a6001744c423",
+    "playerId": "5ff2efb92f36f30017de7e21"
+}
+
 
 ###
