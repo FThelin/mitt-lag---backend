@@ -1,5 +1,6 @@
 const Team = require("./model");
 const User = require("../user/model");
+const Request = require("../request/model");
 
 exports.createTeam = async (req, res) => {
   const user = await User.findById(req.user._id);
@@ -102,23 +103,30 @@ exports.deleteLeaderFromTeam = async (req, res) => {
 
 exports.acceptRequest = async (req, res) => {
   const team = await Team.findById(req.body.teamId);
+  const request = await Request.findById(req.body.requestId);
+  const user = await User.findById(request.player);
 
   if (!team) {
-    return res.status(400).send("Something went wrong");
-  }
-  const requestUser = await team.requests.find((p) => p == req.body.playerId);
-
-  if (!requestUser) {
-    return res.status(404).send("No player found");
+    return res.status(400).send("Something went wrong with team");
   }
 
-  const index = team.requests.indexOf(requestUser);
+  if (!request) {
+    return res.status(400).send("Something went wrong with request");
+  }
+  if (!user) {
+    return res.status(400).send("Something went wrong with user");
+  }
+
+  user.team = [...user.team, team._id];
+
+  const index = team.requests.indexOf(request._id);
   team.requests.splice(index, 1);
 
-  team.players = [...team.players, req.body.playerId];
+  team.players = [...team.players, request.player];
 
   team.save();
-
+  user.save();
+  request.remove();
   res.status(201).json({
     success: true,
   });
