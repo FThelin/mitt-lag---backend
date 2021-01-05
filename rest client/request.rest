@@ -1,10 +1,10 @@
-POST http://localhost:5000/api/requests/5fe99e34b0cfbf1f88c19fc9
+POST http://localhost:5000/api/requests/5ff1f29c98be2200175b7515
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZTM1YWRmY2NjZWFkMDAxNzVlYWE2ZiIsImZpcnN0bmFtZSI6IkZyZWRyaWsiLCJsYXN0bmFtZSI6IlRoZWxpbiIsImVtYWlsIjoiZkB0LnNlIiwidGVhbSI6WyI1ZmUzNWZjZjE3NzA1ZTAwMTcwMTQyNDYiXSwiaWF0IjoxNjA5MTQ1NzM5fQ.UD1L4G9Ad76zXs-E5nay1TIWDOPZGmSQmkK60y9c1Ww
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZjFmMzQ1OThiZTIyMDAxNzViNzUxNiIsImZpcnN0bmFtZSI6IkZyZWRyaWsiLCJsYXN0bmFtZSI6IlRoZWxpbiIsImVtYWlsIjoiZkB0LnNlIiwidGVhbSI6WyI1ZmYxZjM2Mzk4YmUyMjAwMTc1Yjc1MTciXSwiYWN0aXZlVGVhbSI6IjVmZjFmMzYzOThiZTIyMDAxNzViNzUxNyIsImlhdCI6MTYwOTg1NzA4OH0.-M7xFv3I2EG6d97J8GNbDr0Rxq0aU8GSikKw5T0oeMY
 
 {
-    "player": "5fe99df7b0cfbf1f88c19fc8",
-    "message": "Hej, får jag gå med i ditt tuffa lag?"
+    "player": "5ff1f34598be2200175b7516",
+    "message": "Hej, får jag gå med i ditt tuffa lag? SNÄLLA!!!!"
 }
 
 ###

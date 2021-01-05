@@ -4,8 +4,7 @@ const { ModelName } = require("../../utils/modelNames");
 const RequestSchema = new mongoose.Schema(
   {
     player: {
-      type: mongoose.Schema.ObjectId,
-      ref: ModelName.User,
+      type: String,
     },
     message: {
       type: String,
