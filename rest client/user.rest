@@ -6,7 +6,6 @@ POST http://localhost:5000/api/users/register
 Content-Type: application/json
 
 {
-    "firstname": "ad",
     "lastname": "ad",
     "email": "ad@a.se",
     "password": "1234"
