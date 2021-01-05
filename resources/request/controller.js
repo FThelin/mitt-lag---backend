@@ -21,6 +21,7 @@ exports.createRequest = async (req, res) => {
   });
 };
 
+//Ta bort en request
 exports.deleteRequest = async (req, res) => {
   const request = await Request.findByIdAndRemove(req.body.requestId);
 
