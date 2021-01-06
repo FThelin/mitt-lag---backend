@@ -102,7 +102,10 @@ exports.deleteLeaderFromTeam = async (req, res) => {
 };
 
 exports.acceptRequest = async (req, res) => {
-  const team = await Team.findById(req.body.teamId);
+  const team = await Team.findById(req.body.teamId)
+    .populate("players")
+    .populate("leaders")
+    .populate("requests");
   const request = await Request.findById(req.body.requestId);
   const user = await User.findById(request.player);
 
