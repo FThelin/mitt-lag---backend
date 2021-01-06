@@ -39,10 +39,11 @@ exports.deleteRequest = async (req, res) => {
     const index = team.requests.indexOf(request._id);
     team.requests.splice(index, 1);
 
-    team.save();
+    await team.save();
 
     res.status(200).json({
       success: true,
+      data: team,
     });
   } catch (err) {
     res.status(400).json(err);

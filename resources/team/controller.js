@@ -124,10 +124,11 @@ exports.acceptRequest = async (req, res) => {
 
   team.players = [...team.players, request.player];
 
-  team.save();
-  user.save();
+  await team.save();
+  await user.save();
   request.remove();
   res.status(201).json({
     success: true,
+    data: team,
   });
 };
