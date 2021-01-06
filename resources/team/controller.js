@@ -41,7 +41,7 @@ exports.findTeam = async (req, res) => {
 };
 
 exports.getTeam = async (req, res) => {
-  const team = await await Team.findById(req.params.id)
+  const team = await Team.findById(req.params.id)
     .populate("players")
     .populate("leaders")
     .populate("requests");
