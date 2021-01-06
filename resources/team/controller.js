@@ -133,6 +133,5 @@ exports.acceptRequest = async (req, res) => {
   request.remove();
   res.status(201).json({
     success: true,
-    data: team._id,
   });
 };

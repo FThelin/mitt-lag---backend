@@ -25,28 +25,24 @@ exports.createRequest = async (req, res) => {
 };
 
 exports.deleteRequest = async (req, res) => {
-  try {
-    const team = await Team.findById(req.body.teamId);
-    const request = await Request.findByIdAndDelete(req.body.reqId);
+  const team = await Team.findById(req.body.teamId);
+  const request = await Request.findByIdAndDelete(req.body.reqId);
 
-    if (!team) {
-      return res.status(400).send("Something went wrong with team");
-    }
-
-    if (!request) {
-      return res.status(400).send("Something went wrong with request");
-    }
-
-    const index = team.requests.indexOf(request._id);
-    team.requests.splice(index, 1);
-
-    await team.save();
-
-    res.status(200).json({
-      success: true,
-      data: team,
-    });
-  } catch (err) {
-    res.status(400).json(err);
+  if (!team) {
+    return res.status(400).send("Something went wrong with team");
   }
+
+  if (!request) {
+    return res.status(400).send("Something went wrong with request");
+  }
+
+  const index = team.requests.indexOf(request._id);
+  team.requests.splice(index, 1);
+
+  await team.save();
+  request.remove();
+
+  res.status(200).json({
+    success: true,
+  });
 };
