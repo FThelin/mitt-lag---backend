@@ -102,41 +102,36 @@ exports.deleteLeaderFromTeam = async (req, res) => {
 };
 
 exports.acceptRequest = async (req, res) => {
-  const team = await Team.findById(req.body.teamId)
-    .populate("players")
-    .populate("leaders")
-    .populate("requests");
-  const request = await Request.findById(req.body.requestId);
-  const user = await User.findById(request.playerId);
+  try {
+    const team = await Team.findById(req.body.teamId);
+    const request = await Request.findById(req.body.requestId);
+    const user = await User.findById(request.playerId);
 
-  if (!team) {
-    return res.status(400).send("Something went wrong with team");
+    if (!team) {
+      return res.status(400).send("Something went wrong with team");
+    }
+    if (!request) {
+      return res.status(400).send("Something went wrong with request");
+    }
+    if (!user) {
+      return res.status(400).send("Something went wrong with user");
+    }
+
+    user.team = [...user.team, team._id];
+
+    const index = team.requests.indexOf(request._id);
+    team.requests.splice(index, 1);
+
+    team.players = [...team.players, request.playerId];
+
+    await team.save();
+    await user.save();
+    request.remove();
+    res.status(201).json({
+      success: true,
+      data: team._id,
+    });
+  } catch (err) {
+    res.status(400).json(err);
   }
-
-  if (!request) {
-    return res.status(400).send("Something went wrong with request");
-  }
-  if (!user) {
-    return res.status(400).send("Something went wrong with user");
-  }
-
-  user.team = [...user.team, team._id];
-
-  const index = team.requests
-    .map(function (e) {
-      return e._id;
-    })
-    .indexOf(request._id);
-  console.log(index);
-  team.requests.splice(index, 1);
-
-  team.players = [...team.players, request.playerId];
-
-  await team.save();
-  await user.save();
-  request.remove();
-  res.status(201).json({
-    success: true,
-    data: team,
-  });
 };
