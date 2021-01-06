@@ -11,6 +11,7 @@ exports.createRequest = async (req, res) => {
   }
 
   const request = await Request.create({
+    playerId: user._id,
     player: user.firstname + " " + user.lastname,
     message: req.body.message,
   });

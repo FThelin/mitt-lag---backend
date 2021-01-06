@@ -107,7 +107,7 @@ exports.acceptRequest = async (req, res) => {
     .populate("leaders")
     .populate("requests");
   const request = await Request.findById(req.body.requestId);
-  const user = await User.findById(request.player);
+  const user = await User.findById(request.playerId);
 
   if (!team) {
     return res.status(400).send("Something went wrong with team");
@@ -125,7 +125,7 @@ exports.acceptRequest = async (req, res) => {
   const index = team.requests.indexOf(request._id);
   team.requests.splice(index, 1);
 
-  team.players = [...team.players, request.player];
+  team.players = [...team.players, request.playerId];
 
   await team.save();
   await user.save();
