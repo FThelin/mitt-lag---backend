@@ -3,6 +3,10 @@ const { ModelName } = require("../../utils/modelNames");
 
 const RequestSchema = new mongoose.Schema(
   {
+    playerId: {
+      type: mongoose.Schema.ObjectId,
+      ref: ModelName.User,
+    },
     player: {
       type: String,
     },
