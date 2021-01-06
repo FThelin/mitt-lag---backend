@@ -6,6 +6,7 @@ const router = express.Router();
 const handler = express.Router();
 
 handler.post("/:teamId", verifyToken, controller.createRequest);
+handler.delete("/", verifyToken, controller.deleteRequest);
 
 router.use("/requests", handler);
 

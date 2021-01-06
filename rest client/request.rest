@@ -8,3 +8,14 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZjFmMzQ1O
 }
 
 ###
+
+DELETE http://localhost:5000/api/requests
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZjQ3YzRjMDI1YTY1MDAxNzFlMDdiZCIsImZpcnN0bmFtZSI6IkZyZWRyaWsiLCJsYXN0bmFtZSI6IlRoZWxpbiIsImVtYWlsIjoiZkB0LnNlIiwidGVhbSI6WyI1ZmY0N2M3NDAyNWE2NTAwMTcxZTA3YmYiXSwiYWN0aXZlVGVhbSI6IjVmZjQ3Yzc0MDI1YTY1MDAxNzFlMDdiZiIsImlhdCI6MTYwOTkyMTAyMX0.z0o6brAENjY1INhwqYdc8igWyDQRi5--Z35SCJFc_vo
+
+{
+    "reqId": "5ff5750328fc360017f0d76f",
+    "teamId": "5ff47c74025a6500171e07bf"
+}
+
+###

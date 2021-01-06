@@ -22,3 +22,29 @@ exports.createRequest = async (req, res) => {
     success: true,
   });
 };
+
+exports.deleteRequest = async (req, res) => {
+  try {
+    const team = await Team.findById(req.body.teamId);
+    const request = await Request.findByIdAndDelete(req.body.reqId);
+
+    if (!team) {
+      return res.status(400).send("Something went wrong with team");
+    }
+
+    if (!request) {
+      return res.status(400).send("Something went wrong with request");
+    }
+
+    const index = team.requests.indexOf(request._id);
+    team.requests.splice(index, 1);
+
+    team.save();
+
+    res.status(200).json({
+      success: true,
+    });
+  } catch (err) {
+    res.status(400).json(err);
+  }
+};
