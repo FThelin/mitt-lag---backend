@@ -122,7 +122,12 @@ exports.acceptRequest = async (req, res) => {
 
   user.team = [...user.team, team._id];
 
-  const index = team.requests.indexOf(request._id);
+  const index = team.requests
+    .map(function (e) {
+      return e._id;
+    })
+    .indexOf(request._id);
+  console.log(index);
   team.requests.splice(index, 1);
 
   team.players = [...team.players, request.playerId];
