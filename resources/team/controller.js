@@ -118,6 +118,11 @@ exports.acceptRequest = async (req, res) => {
 
   user.team = [...user.team, team._id];
 
+  //If user does not have an active team already, assign this team as active.
+  if (!user.hasOwnProperty("activeTeam")) {
+    user.activeTeam = team._id;
+  }
+
   const index = team.requests.indexOf(request._id);
   team.requests.splice(index, 1);
 
