@@ -127,6 +127,36 @@ exports.deleteLeaderFromTeam = async (req, res) => {
   });
 };
 
+exports.teamRole = async (req, res) => {
+  const team = await Team.findById(req.body.teamId);
+  const userId = req.body.userId;
+
+  if (!team) {
+    return res.status(400).send("Something went wrong with team");
+  }
+
+  const isLeader = team.leaders.find((l) => l == userId);
+  const isPlayer = team.players.find((l) => l == userId);
+
+  if (isLeader) {
+    team.players = [...team.players, userId];
+    const index = team.leaders.indexOf(userId);
+    team.leaders.splice(index, 1);
+  } else if (isPlayer) {
+    team.leaders = [...team.leaders, userId];
+    const index = team.players.indexOf(userId);
+    team.players.splice(index, 1);
+  } else {
+    return res.status(400).send("Something went wrong with team");
+  }
+
+  await team.save();
+
+  res.status(201).json({
+    success: true,
+  });
+};
+
 exports.acceptRequest = async (req, res) => {
   const team = await Team.findById(req.body.teamId);
   const request = await Request.findById(req.body.requestId);

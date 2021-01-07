@@ -48,3 +48,13 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZjU5MTk1M
 
 
 ###
+
+PUT http://localhost:5000/api/teams/teamRole
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZjU5MTk1MDVhZDMyMDAxNzFkNWVkZCIsImZpcnN0bmFtZSI6IkZyZWRyaWsiLCJsYXN0bmFtZSI6IlRoZWxpbiIsImVtYWlsIjoiZkB0LnNlIiwidGVhbSI6WyI1ZmY1OTFjMDA1YWQzMjAwMTcxZDVlZTAiXSwiYWN0aXZlVGVhbSI6IjVmZjU5MWMwMDVhZDMyMDAxNzFkNWVlMCIsImlhdCI6MTYwOTkyOTE5Mn0.pxsU9ObjlSLbo-K1KyHRWusp60q-SNkj3XLhEWoDjRY
+
+{
+    "teamId": "5ff6df5486cae80017cb70e0",
+    "userId": "5ff6df3086cae80017cb70dd"
+
+}
