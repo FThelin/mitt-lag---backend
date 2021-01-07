@@ -55,21 +55,34 @@ exports.getTeam = async (req, res) => {
 
 exports.deletePlayerFromTeam = async (req, res) => {
   const team = await Team.findById(req.body.teamId);
+  const user = await User.findById(req.body.userId);
 
   if (!team) {
     return res.status(404).send("No team found");
   }
 
-  const player = await team.players.find((p) => p == req.body.userId);
-
-  if (!player) {
+  if (!user) {
     return res.status(404).send("No player found");
   }
 
-  const index = team.players.indexOf(player);
+  //Remove player from team
+  const index = team.players.indexOf(user._id);
   team.players.splice(index, 1);
 
+  //Remove team from user
+  const userIndex = user.team.indexOf(team._id);
+  user.team.splice(userIndex, 1);
+
+  if (user.activeTeam === team_id) {
+    if (user.team.length === 0) {
+      user.activeTeam = [];
+    } else if (user.team.length > 0) {
+      user.activeTeam = user.team[0];
+    }
+  }
+
   await team.save();
+  await user.save();
 
   res.status(200).json({
     success: true,
