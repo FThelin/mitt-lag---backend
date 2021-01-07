@@ -1,9 +1,9 @@
 POST http://localhost:5000/api/teams
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZjYxZGRkZmQzNzc2MDAxNzVmMTE1YyIsImZpcnN0bmFtZSI6IkZyZWRyaWsiLCJsYXN0bmFtZSI6IlRoZWxpbiIsImVtYWlsIjoiZkB0LnNlIiwidGVhbSI6WyI1ZmY2MWU1YmZkMzc3NjAwMTc1ZjExNjAiXSwiYWN0aXZlVGVhbSI6IjVmZjYxZTViZmQzNzc2MDAxNzVmMTE2MCIsImlhdCI6MTYxMDAxMDAxMH0.GiEniDxEjSrHf5zG3R2dbskUH5WI5YwYZ8KUi2nogZY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZjcxMDc5NTMwNDE1MDAxNzBiZjg4ZCIsImZpcnN0bmFtZSI6InRlc3QiLCJsYXN0bmFtZSI6InRlc3Rzc29uIiwiZW1haWwiOiJ0ZXN0QHRlc3Quc2UiLCJ0ZWFtIjpbXSwiaWF0IjoxNjEwMDI3ODE4fQ.15cUrqQVI3PwHoeZCwrmjdNhKeSa74gICZdAkpGMWik
 
 {
-    "name": "Hasses Sega Gubbar",
+    "name": "Gubbar",
     "city": "Göteborg",
     "sport": "Innebandy"
 }
@@ -56,5 +56,17 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZjU5MTk1M
 {
     "teamId": "5ff6df5486cae80017cb70e0",
     "userId": "5ff6df3086cae80017cb70dd"
+
+}
+
+###
+
+PUT http://localhost:5000/api/teams/changeTeam
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZjU5MTk1MDVhZDMyMDAxNzFkNWVkZCIsImZpcnN0bmFtZSI6IkZyZWRyaWsiLCJsYXN0bmFtZSI6IlRoZWxpbiIsImVtYWlsIjoiZkB0LnNlIiwidGVhbSI6WyI1ZmY1OTFjMDA1YWQzMjAwMTcxZDVlZTAiXSwiYWN0aXZlVGVhbSI6IjVmZjU5MWMwMDVhZDMyMDAxNzFkNWVlMCIsImlhdCI6MTYwOTkyOTE5Mn0.pxsU9ObjlSLbo-K1KyHRWusp60q-SNkj3XLhEWoDjRY
+
+{
+    "teamId": "5ff713392d3cfa0da44b04d0",
+    "userId": "5ff7109553041500170bf891"
 
 }

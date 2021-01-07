@@ -191,3 +191,19 @@ exports.acceptRequest = async (req, res) => {
     success: true,
   });
 };
+
+exports.changeTeam = async (req, res) => {
+  const user = await User.findById(req.body.userId);
+  const teamId = req.body.teamId;
+  if (!user) {
+    return res.status(400).send("Something went wrong with user");
+  }
+
+  user.activeTeam = teamId;
+
+  await user.save();
+
+  res.status(201).json({
+    success: true,
+  });
+};

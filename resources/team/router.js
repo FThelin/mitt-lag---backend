@@ -12,6 +12,7 @@ handler.delete("/deletePlayer", verifyToken, controller.deletePlayerFromTeam);
 handler.delete("/deleteLeader", verifyToken, controller.deleteLeaderFromTeam);
 handler.put("/teamRole", verifyToken, controller.teamRole);
 handler.post("/acceptRequest", verifyToken, controller.acceptRequest);
+handler.put("/changeTeam", verifyToken, controller.changeTeam);
 
 router.use("/teams", handler);
 
