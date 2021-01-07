@@ -73,9 +73,9 @@ exports.deletePlayerFromTeam = async (req, res) => {
   const userIndex = user.team.indexOf(team._id);
   user.team.splice(userIndex, 1);
 
-  if (user.activeTeam === team_id) {
+  if (user.activeTeam.toString() == team._id.toString()) {
     if (user.team.length === 0) {
-      user.activeTeam = [];
+      user.activeTeam = undefined;
     } else if (user.team.length > 0) {
       user.activeTeam = user.team[0];
     }
