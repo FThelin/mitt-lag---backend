@@ -92,21 +92,34 @@ exports.deletePlayerFromTeam = async (req, res) => {
 
 exports.deleteLeaderFromTeam = async (req, res) => {
   const team = await Team.findById(req.body.teamId);
+  const user = await User.findById(req.body.userId);
 
   if (!team) {
     return res.status(404).send("No team found");
   }
 
-  const player = await team.leaders.find((p) => p == req.body.userId);
-
-  if (!player) {
+  if (!user) {
     return res.status(404).send("No player found");
   }
 
-  const index = team.leaders.indexOf(player);
+  //Remove player from team
+  const index = team.leaders.indexOf(user._id);
   team.leaders.splice(index, 1);
 
+  //Remove team from user
+  const userIndex = user.team.indexOf(team._id);
+  user.team.splice(userIndex, 1);
+
+  if (user.activeTeam.toString() == team._id.toString()) {
+    if (user.team.length === 0) {
+      user.activeTeam = undefined;
+    } else if (user.team.length > 0) {
+      user.activeTeam = user.team[0];
+    }
+  }
+
   await team.save();
+  await user.save();
 
   res.status(200).json({
     success: true,
