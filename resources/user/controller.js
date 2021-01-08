@@ -22,12 +22,15 @@ exports.register = async (req, res) => {
   }
 };
 
-exports.getAllUsers = async (req, res) => {
-  const users = await User.find();
+exports.getUserTeams = async (req, res) => {
+  const user = await User.findById(req.params.userId).populate({
+    path: "team",
+    select: ["name", "city", "sport"],
+  });
 
-  if (!users) {
+  if (!user) {
     res.status(400).json("No users found");
   }
 
-  res.status(200).json(users);
+  res.status(200).json(user.team);
 };
