@@ -205,5 +205,6 @@ exports.changeTeam = async (req, res) => {
 
   res.status(201).json({
     success: true,
+    data: user.activeTeam,
   });
 };
