@@ -6,6 +6,7 @@ const handler = express.Router();
 
 handler.post("/", controller.createGame);
 handler.get("/:teamId/:season", controller.getSeasonGames);
+handler.get("/:teamId", controller.getGames);
 
 router.use("/game", handler);
 

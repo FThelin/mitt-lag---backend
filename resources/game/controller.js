@@ -38,3 +38,14 @@ exports.getSeasonGames = async (req, res) => {
   }
   res.status(200).json(game);
 };
+
+exports.getGames = async (req, res) => {
+  const game = await Game.find({
+    myTeam: req.params.teamId,
+  });
+
+  if (!game) {
+    return res.status(404).send("Could not find any games");
+  }
+  res.status(200).json(game);
+};
