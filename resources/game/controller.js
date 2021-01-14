@@ -26,7 +26,9 @@ exports.createGame = async (req, res) => {
   team.games = [...team.games, game];
   team.save();
 
-  res.status(201).json(game);
+  res.status(201).json({
+    success: true,
+  });
 };
 
 exports.updateGame = async (req, res) => {

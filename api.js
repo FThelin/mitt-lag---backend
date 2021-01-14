@@ -4,6 +4,7 @@ const userRouter = require("./resources/user/router");
 const TeamRouter = require("./resources/team/router");
 const GameRouter = require("./resources/game/router");
 const RequestRouter = require("./resources/request/router");
+const PlayerResultRouter = require("./resources/playerResult/router");
 
 const router = express.Router();
 const handler = express.Router();
@@ -13,6 +14,7 @@ handler.use(userRouter);
 handler.use(TeamRouter);
 handler.use(GameRouter);
 handler.use(RequestRouter);
+handler.use(PlayerResultRouter);
 
 router.use("/api", handler);
 
