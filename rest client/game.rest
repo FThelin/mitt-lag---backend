@@ -28,6 +28,12 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZmI1YzIyM
 }
 ###
 
+DELETE http://localhost:5000/api/game/5ffb5c992783f4001750c2e6/5ffec4b630c06cb851d99d3e
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZmI1YzIyMjc4M2Y0MDAxNzUwYzJlNSIsImZpcnN0bmFtZSI6IkZyZWRyaWsiLCJsYXN0bmFtZSI6IlRoZWxpbiIsImVtYWlsIjoiZkB0LnNlIiwidGVhbSI6WyI1ZmZiNWM5OTI3ODNmNDAwMTc1MGMyZTYiLCI1ZmZiNWQ0ZDI3ODNmNDAwMTc1MGMyZTgiXSwiYWN0aXZlVGVhbSI6IjVmZmI1Yzk5Mjc4M2Y0MDAxNzUwYzJlNiIsImlhdCI6MTYxMDQ0Mzc3MX0.ySr56jcWPyZetB1_FgfmfNAyrtLu8AowGagF9bfR9VU
+
+###
+
 GET http://localhost:5000/api/game/5ffb5c992783f4001750c2e6/2021-2022
 Content-Type: application/json
 

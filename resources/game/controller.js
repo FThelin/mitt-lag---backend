@@ -49,16 +49,25 @@ exports.updateGame = async (req, res) => {
   res.status(201).json(game);
 };
 
-exports.getSeasonGames = async (req, res) => {
-  const game = await Game.find({
-    myTeam: req.params.teamId,
-    season: req.params.season,
-  });
+exports.deleteGame = async (req, res) => {
+  const game = await Game.findByIdAndDelete(req.params.gameId);
+  const team = await Team.findById(req.params.teamId);
 
   if (!game) {
-    return res.status(404).send("Could not find any games");
+    return res.status(400).send("Something went wrong");
   }
-  res.status(200).json(game);
+  if (!team) {
+    return res.status(400).send("Something went wrong");
+  }
+
+  const index = team.games.indexOf(game._id);
+  team.games.splice(index, 1);
+
+  await team.save();
+
+  res.status(200).json({
+    success: true,
+  });
 };
 
 exports.getGames = async (req, res) => {
