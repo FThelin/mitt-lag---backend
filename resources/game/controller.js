@@ -29,33 +29,6 @@ exports.createGame = async (req, res) => {
   res.status(201).json(game);
 };
 
-// exports.updateGame = async (req, res) => {
-//   const team = await Team.findById(req.body.teamId);
-//   const game = await Game.findById(req.body.Id);
-
-//   if (!team) {
-//     return res.status(400).send("Something went wrong");
-//   }
-
-//   const { homeGame, goals, opponentGoals, opponent, date, season } = req.body;
-
-//   // Create game
-//   const game = await Game.create({
-//     myTeam: team._id,
-//     homeGame,
-//     goals,
-//     opponentGoals,
-//     opponent,
-//     date,
-//     season,
-//   });
-
-//   team.games = [...team.games, game];
-//   team.save();
-
-//   res.status(201).json(game);
-// };
-
 exports.getSeasonGames = async (req, res) => {
   const game = await Game.find({
     myTeam: req.params.teamId,
