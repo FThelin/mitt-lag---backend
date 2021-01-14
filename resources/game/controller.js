@@ -29,6 +29,26 @@ exports.createGame = async (req, res) => {
   res.status(201).json(game);
 };
 
+exports.updateGame = async (req, res) => {
+  const { homeGame, goals, opponentGoals, opponent, date, season } = req.body;
+
+  // Create game
+  const gameObj = {
+    homeGame,
+    goals,
+    opponentGoals,
+    opponent,
+    date,
+    season,
+  };
+  const game = await Game.findByIdAndUpdate(req.body.gameId, gameObj);
+  if (!game) {
+    return res.status(400).send("Something went wrong");
+  }
+  await game.save();
+  res.status(201).json(game);
+};
+
 exports.getSeasonGames = async (req, res) => {
   const game = await Game.find({
     myTeam: req.params.teamId,

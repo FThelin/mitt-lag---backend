@@ -13,17 +13,17 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZmI1YzIyM
     "season": "2021-2022"
 }
 ###
-PUT http://localhost:5000/api/updateGame/
+PUT http://localhost:5000/api/game/updateGame/
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZmI1YzIyMjc4M2Y0MDAxNzUwYzJlNSIsImZpcnN0bmFtZSI6IkZyZWRyaWsiLCJsYXN0bmFtZSI6IlRoZWxpbiIsImVtYWlsIjoiZkB0LnNlIiwidGVhbSI6WyI1ZmZiNWM5OTI3ODNmNDAwMTc1MGMyZTYiLCI1ZmZiNWQ0ZDI3ODNmNDAwMTc1MGMyZTgiXSwiYWN0aXZlVGVhbSI6IjVmZmI1Yzk5Mjc4M2Y0MDAxNzUwYzJlNiIsImlhdCI6MTYxMDQ0Mzc3MX0.ySr56jcWPyZetB1_FgfmfNAyrtLu8AowGagF9bfR9VU
 
 {
-    "teamId": "5ffb5c992783f4001750c2e6",
+    "gameId": "60003eca7ee9bb0017b07ee1",
     "homeGame": true,
     "goals": 1,
     "opponentGoals": 12,
-    "opponent": "FED19G",
-    "date": "2021-12-12",
+    "opponent": "WTF BK",
+    "date": "2021-12-15",
     "season": "2021-2022"
 }
 ###
