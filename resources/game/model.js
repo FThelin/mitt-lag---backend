@@ -9,7 +9,6 @@ const GameSchema = new mongoose.Schema({
   },
   goals: {
     type: Number,
-    default: 0,
     required: true,
   },
   homeGame: {
@@ -30,7 +29,6 @@ const GameSchema = new mongoose.Schema({
   },
   opponentGoals: {
     type: Number,
-    default: 0,
   },
   date: {
     type: String,
