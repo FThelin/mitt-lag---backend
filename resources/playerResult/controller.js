@@ -41,5 +41,5 @@ exports.addPlayerResult = async (req, res) => {
   game.playerResult = [...game.playerResult, playerResult];
   game.save();
 
-  res.status(201).json(game.playerResult);
+  res.status(201).json(playerResult);
 };
