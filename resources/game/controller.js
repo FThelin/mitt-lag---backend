@@ -1,7 +1,7 @@
 const Request = require("./model");
 const Game = require("../game/model");
 const Team = require("../team/model");
-// const playerResult = require("../playerResult/model")
+const PlayerResult = require("../playerResult/model");
 
 exports.createGame = async (req, res) => {
   const team = await Team.findById(req.body.teamId);
@@ -61,6 +61,12 @@ exports.deleteGame = async (req, res) => {
   if (!team) {
     return res.status(400).send("Something went wrong");
   }
+
+  const playerResults = await PlayerResult.findAll({ game: game._id });
+  if (!playerResults) {
+    return res.status(400).send("Something went wrong");
+  }
+  await playerResults.remove();
 
   const index = team.games.indexOf(game._id);
   team.games.splice(index, 1);

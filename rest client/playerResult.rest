@@ -14,3 +14,11 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZmI1YzIyM
     "assists": 10,
     "penalties": 10
 }
+
+###
+
+DELETE http://localhost:5000/api/playerResult/6005538aea2d1300178f5f85/60055381ea2d1300178f5f84
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZmI1YzIyMjc4M2Y0MDAxNzUwYzJlNSIsImZpcnN0bmFtZSI6IkZyZWRyaWsiLCJsYXN0bmFtZSI6IlRoZWxpbiIsImVtYWlsIjoiZkB0LnNlIiwidGVhbSI6WyI1ZmZiNWM5OTI3ODNmNDAwMTc1MGMyZTYiLCI1ZmZiNWQ0ZDI3ODNmNDAwMTc1MGMyZTgiXSwiYWN0aXZlVGVhbSI6IjVmZmI1Yzk5Mjc4M2Y0MDAxNzUwYzJlNiIsImlhdCI6MTYxMDQ0Mzc3MX0.ySr56jcWPyZetB1_FgfmfNAyrtLu8AowGagF9bfR9VU
+
+###

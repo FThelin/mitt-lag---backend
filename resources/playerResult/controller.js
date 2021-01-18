@@ -43,3 +43,27 @@ exports.addPlayerResult = async (req, res) => {
 
   res.status(201).json(playerResult);
 };
+
+// Delete player result
+exports.deletePlayerResult = async (req, res) => {
+  const playerResult = await PlayerResult.findByIdAndDelete(
+    req.params.playerResultId
+  );
+  const game = await Game.findById(req.params.gameId);
+
+  if (!playerResult) {
+    return res.status(400).send("Something went wrong with playerResult");
+  }
+  if (!game) {
+    return res.status(400).send("Something went wrong game");
+  }
+
+  const index = game.playerResult.indexOf(playerResult._id);
+  game.playerResult.splice(index, 1);
+
+  await game.save();
+
+  res.status(200).json({
+    success: true,
+  });
+};

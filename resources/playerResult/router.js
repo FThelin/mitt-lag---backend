@@ -6,6 +6,7 @@ const handler = express.Router();
 
 handler.get("/:gameId", controller.getPlayerResult);
 handler.post("/", controller.addPlayerResult);
+handler.delete("/:playerResultId/:gameId", controller.deletePlayerResult);
 
 router.use("/playerResult", handler);
 
