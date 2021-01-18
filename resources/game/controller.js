@@ -56,17 +56,17 @@ exports.deleteGame = async (req, res) => {
   const team = await Team.findById(req.params.teamId);
 
   if (!game) {
-    return res.status(400).send("Something went wrong");
+    return res.status(400).send("Something went wrong with game");
   }
   if (!team) {
-    return res.status(400).send("Something went wrong");
+    return res.status(400).send("Something went wrong with team");
   }
 
-  const playerResults = await PlayerResult.findAll({ game: game._id });
-  if (!playerResults) {
-    return res.status(400).send("Something went wrong");
-  }
-  await playerResults.remove();
+  await PlayerResult.deleteMany({
+    _id: {
+      $in: game.playerResult,
+    },
+  });
 
   const index = team.games.indexOf(game._id);
   team.games.splice(index, 1);
