@@ -1,5 +1,6 @@
 const Game = require("../game/model");
 const User = require("../user/model");
+const Team = require("../team/model");
 const PlayerResult = require("../playerResult/model");
 
 exports.getPlayerResult = async (req, res) => {
@@ -12,6 +13,23 @@ exports.getPlayerResult = async (req, res) => {
   }
 
   res.status(200).json(playerResult.playerResult);
+};
+
+exports.getPlayerResultsTeam = async (req, res) => {
+  const team = await Team.findById(req.params.teamId);
+
+  const games = await Game.find({ _id: { $in: team.games } }).populate(
+    "playerResult"
+  );
+
+  if (!games) {
+    return res.status(404).send("Something went wrong with playerResults");
+  }
+  if (!team) {
+    return res.status(404).send("Something went wrong with team");
+  }
+
+  res.status(200).json(games);
 };
 
 exports.addPlayerResult = async (req, res) => {
