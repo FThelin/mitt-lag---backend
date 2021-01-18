@@ -1,7 +1,7 @@
 const Request = require("./model");
 const Game = require("../game/model");
 const Team = require("../team/model");
-// const playerResult = require("../playerResult/model")
+const PlayerResult = require("../playerResult/model");
 
 exports.createGame = async (req, res) => {
   const team = await Team.findById(req.body.teamId);
