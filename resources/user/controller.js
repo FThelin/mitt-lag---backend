@@ -5,21 +5,23 @@ const errorMessage = require("../../utils/errorHandler");
 //Register new user
 exports.register = async (req, res) => {
   try {
+    const password = "";
+
     if (req.body.password.length < 6) {
       res.status(400).json({ password: "too short(min 6 chars)" });
     } else {
-      const { firstname, lastname, email } = req.body;
-      const password = await bcrypt.hash(req.body.password, 10);
-
-      // Create user
-      const user = await User.create({
-        firstname,
-        lastname,
-        email,
-        password,
-      });
-      res.status(201).json(user);
+      password = await bcrypt.hash(req.body.password, 10);
     }
+    const { firstname, lastname, email } = req.body;
+
+    // Create user
+    const user = await User.create({
+      firstname,
+      lastname,
+      email,
+      password,
+    });
+    res.status(201).json(user);
   } catch (err) {
     const errorObject = {};
 
