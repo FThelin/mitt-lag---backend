@@ -1,11 +1,11 @@
 const bcrypt = require("bcrypt");
 const User = require("./model");
+const errorMessage = require("../../utils/errorHandler");
 
 //Register new user
 exports.register = async (req, res) => {
   try {
     const { firstname, lastname, email } = req.body;
-
     const password = await bcrypt.hash(req.body.password, 10);
 
     // Create user
@@ -15,10 +15,19 @@ exports.register = async (req, res) => {
       email,
       password,
     });
-
     res.status(201).json(user);
   } catch (err) {
-    res.status(400).json(err);
+    const errorObject = {};
+
+    if (err.code === 11000 || 11001 === err.code) {
+      errorObject["email"] = "duplicate";
+    } else if (err.name === "ValidationError") {
+      Object.values(err.errors).forEach((val) => {
+        errorObject[val.path] = val.kind;
+      });
+    }
+
+    res.status(400).json(errorObject);
   }
 };
 
