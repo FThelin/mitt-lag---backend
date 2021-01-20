@@ -1,9 +1,15 @@
-exports.errorMessage = function () {
-  const errorObject = {};
-  if (err.name === "ValidationError") {
-    Object.values(err.errors).forEach((val) => {
-      errorObject[val.path] = val.kind;
-    });
-    return errorObject;
-  }
+module.exports = {
+  errorMessage: function (body) {
+    const { firstname, lastname, password } = body;
+    let errorMsg = "";
+
+    if (firstname.length < 2) {
+      errorMsg = "Förnamn saknas";
+    } else if (lastname.length < 2) {
+      errorMsg = "Efternamn saknas";
+    } else if (password.length < 6) {
+      errorMsg = "Lösenord för kort";
+    }
+    return errorMsg;
+  },
 };
