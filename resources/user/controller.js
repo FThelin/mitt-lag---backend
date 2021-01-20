@@ -25,10 +25,12 @@ exports.register = async (req, res) => {
 
     if (err.code === 11000 || 11001 === err.code) {
       errorObject["email"] = "duplicate";
-    }
-    if (err.name === "ValidationError") {
+    } else if (err.name === "ValidationError") {
       Object.values(err.errors).forEach((val) => {
-        errorObject[val.path] = val.kind;
+        if (errorObject[val.path] === "email") {
+        } else {
+          errorObject[val.path] = val.kind;
+        }
       });
     }
 
