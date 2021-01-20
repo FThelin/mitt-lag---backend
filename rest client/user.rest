@@ -7,8 +7,8 @@ POST http://localhost:5000/api/users/register
 Content-Type: application/json
 
 {
-    "firstname": "",
+    "firstname": "asd",
     "lastname": "asd",
-    "email": "test5@test5.com",
-    "password": "123123"
+    "email": "test1@test2.com",
+    "password": "123129"
 }
