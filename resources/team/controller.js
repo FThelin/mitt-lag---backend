@@ -1,29 +1,39 @@
 const Team = require("./model");
 const User = require("../user/model");
 const Request = require("../request/model");
+const errorHandler = require("../../utils/errorHandler");
 
 exports.createTeam = async (req, res) => {
-  const user = await User.findById(req.user._id);
+  try {
+    const errorMsg = errorHandler.errorMessageCreateTeam(req.body);
+    if (!errorMsg) {
+      const user = await User.findById(req.user._id);
 
-  if (!user) {
-    return res.status(400).send("Something went wrong");
+      if (!user) {
+        return res.status(400).send("Something went wrong");
+      }
+
+      const { name, city, sport } = req.body;
+
+      // Create team
+      const team = await Team.create({
+        name,
+        city,
+        sport,
+        leaders: [req.user._id],
+      });
+
+      user.activeTeam = team._id;
+      user.team = [...user.team, team._id];
+      user.save();
+
+      res.status(201).json(team);
+    } else {
+      res.status(400).json(errorMsg);
+    }
+  } catch (error) {
+    res.status(400).json(error);
   }
-
-  const { name, city, sport } = req.body;
-
-  // Create team
-  const team = await Team.create({
-    name,
-    city,
-    sport,
-    leaders: [req.user._id],
-  });
-
-  user.activeTeam = team._id;
-  user.team = [...user.team, team._id];
-  user.save();
-
-  res.status(201).json(team);
 };
 
 exports.findTeam = async (req, res) => {

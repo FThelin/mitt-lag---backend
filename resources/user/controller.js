@@ -5,7 +5,7 @@ const errorHandler = require("../../utils/errorHandler");
 //Register new user
 exports.register = async (req, res) => {
   try {
-    const errorMsg = errorHandler.errorMessage(req.body);
+    const errorMsg = errorHandler.errorMessageRegister(req.body);
     if (!errorMsg) {
       const password = await bcrypt.hash(req.body.password, 10);
       const { firstname, lastname, email } = req.body;

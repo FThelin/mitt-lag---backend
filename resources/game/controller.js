@@ -2,33 +2,50 @@ const Request = require("./model");
 const Game = require("../game/model");
 const Team = require("../team/model");
 const PlayerResult = require("../playerResult/model");
+const errorHandler = require("../../utils/errorHandler");
 
 exports.createGame = async (req, res) => {
-  const team = await Team.findById(req.body.teamId);
+  try {
+    const errorMsg = errorHandler.errorMessageCreateGame(req.body);
+    if (!errorMsg) {
+      const team = await Team.findById(req.body.teamId);
 
-  if (!team) {
-    return res.status(400).send("Something went wrong");
+      if (!team) {
+        return res.status(400).send("Something went wrong");
+      }
+
+      const {
+        homeGame,
+        goals,
+        opponentGoals,
+        opponent,
+        date,
+        season,
+      } = req.body;
+
+      // Create game
+      const game = await Game.create({
+        myTeam: team._id,
+        homeGame,
+        goals,
+        opponentGoals,
+        opponent,
+        date,
+        season,
+      });
+
+      team.games = [...team.games, game];
+      team.save();
+
+      res.status(201).json({
+        success: true,
+      });
+    } else {
+      res.status(400).json(errorMsg);
+    }
+  } catch (error) {
+    res.status(400).json(error);
   }
-
-  const { homeGame, goals, opponentGoals, opponent, date, season } = req.body;
-
-  // Create game
-  const game = await Game.create({
-    myTeam: team._id,
-    homeGame,
-    goals,
-    opponentGoals,
-    opponent,
-    date,
-    season,
-  });
-
-  team.games = [...team.games, game];
-  team.save();
-
-  res.status(201).json({
-    success: true,
-  });
 };
 
 exports.updateGame = async (req, res) => {
